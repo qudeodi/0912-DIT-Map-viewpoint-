@@ -73,13 +73,29 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         return annotationView
         
-    }
+   }
 
     func mapView(_ mapView: MKMapView, annotationView view:
-    MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+    {
 
-    print("callout Accessory Tapped!")
-}
+    print("Accessory Button Tapped!!!")
+ 
+    let viewAnno = view.annotation
+    let viewTitle: String = ((viewAnno?.title)!)!
+    let viewSubTitle: String = ((viewAnno?.subtitle)!)!
+    
+    print("\(viewTitle))  \(viewSubTitle))")
+    
+        
+    let ac = UIAlertController(title: viewTitle, message: viewSubTitle,
+                               preferredStyle: .actionSheet)
+        
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: "DELETE", style: .destructive, handler: nil))
+        
+        present(ac, animated: true, completion: nil)
+  }
 
 
  // func mapView(_ mapView: MKMapView, annotationView view:
@@ -94,9 +110,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
  //       print("\(viewTitle) \(viewSubTitle)")
  //
  //       let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .alert)
+    
  //       ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
  //       present(ac, animated: true, completion: nil)
  //   }
 
 // }
 
+}
