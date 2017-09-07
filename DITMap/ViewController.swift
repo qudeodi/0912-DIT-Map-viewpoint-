@@ -5,6 +5,7 @@
 //  Created by 김종현 on 2017. 8. 31..
 //  Copyright © 2017년 김종현. All rights reserved.
 //
+//  201111185 강민석
 
 import UIKit
 import MapKit
